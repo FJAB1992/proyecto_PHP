@@ -5,6 +5,7 @@
                 Trabajo realizado por 
                 <br>Daniel Alejandro Molina Gálvez <br>
                 <br>Francisco Javier Aranda Barba <br>
+                <br>Carlos Vallejo Calvo <br>
 
             </div>
         </div>
