@@ -69,6 +69,8 @@ CREATE TABLE IF NOT EXISTS `seguridad` (
   PRIMARY KEY (`contraseña`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+INSERT INTO `seguridad` (`contraseña`) VALUES
+('w2vsH2iE');
 -- --------------------------------------------------------
 
 --
