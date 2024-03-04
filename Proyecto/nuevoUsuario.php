@@ -1,24 +1,25 @@
 <!doctype html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title></title>
+    <meta charset="utf-8">
+    <title></title>
 </head>
 <style>
-    body{
+    body {
         text-align: center;
     }
 
-	a{
-		color: blue;
+    a {
+        color: blue;
         text-decoration: none;
-	}
-
-    a:hover{
-        text-decoration: underline;
     }
 
+    a:hover {
+        text-decoration: underline;
+    }
 </style>
+
 <body>
     <h1>Creacion de nuevo usuario</h1>
     <form action="creacionUsuario.php">
@@ -36,8 +37,10 @@
 
 
     <?php
-    echo("<br><a href='iniciarSesion.php?'>Pulsa aqui para volver al formulario de inicio de sesion</a>");print("<br>"); 
+    echo ("<br><a href='iniciarSesion.php?'>Pulsa aqui para volver al formulario de inicio de sesion</a>");
+    print("<br>");
 
     ?>
 </body>
+
 </html>
