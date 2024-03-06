@@ -30,7 +30,6 @@ USE libreria;
 -- Estructura de tabla para la tabla `libros`
 --
 
-DROP TABLE IF EXISTS `libros`;
 CREATE TABLE IF NOT EXISTS `libros` (
   `id_libro` int NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
@@ -39,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `libros` (
   `fecha_publicacion` date NOT NULL,
   `disponibilidad` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_libro`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `libros`
@@ -67,7 +66,7 @@ DROP TABLE IF EXISTS `seguridad`;
 CREATE TABLE IF NOT EXISTS `seguridad` (
   `contraseña` varchar(100) NOT NULL,
   PRIMARY KEY (`contraseña`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `seguridad` (`contraseña`) VALUES
 ('w2vsH2iE');
@@ -85,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `contraseña` varchar(100) NOT NULL,
   `rol` varchar(10) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
