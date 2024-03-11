@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Creación de Nuevo Administrador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
 <?php
 session_start();
 
@@ -32,13 +51,13 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
     $registro = mysqli_fetch_assoc($resultado);
     $nombre = $registro['nombre'];
 
-    echo "<h1>Bienvenido $nombre</h1>";
+    echo "<div class='container text-center bg-success'><h1>Bienvenido $nombre</h1>";
 
     if ($registro['rol'] == 'admin') {
         // Resto del código para administrador
         echo "<p>Eres un administrador.</p><br>";
-        echo("<a href='cambiarContraseña.php?'>Cambiar contraseña de acceso</a>");print("<br>"); 
-        echo("<a href='verUsuarios.php?'>Ver usuarios</a>");print("<br>");
+        echo("<a class='btn btn-primary' href='cambiarContraseña.php?'>Cambiar contraseña de acceso</a>");print("<br><br>"); 
+        echo("<a class='btn btn-primary' href='verUsuarios.php?'>Ver usuarios</a>");print("<br><br>");
 
 
 
@@ -68,14 +87,14 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
             print"<td>$registro[3]</td>";
             print"<td>$registro[4]</td>";
             //En este enlace se pasa el codigo del libro como variable
-            print"<td><a href='reserva_libro.php?codigo=$codigo'>Reservar</a></td></tr>";
+            print"<td><a class='btn btn-primary' href='reserva_libro.php?codigo=$codigo'>Reservar</a></td></tr>";
             $codigo= $codigo+1;
         }
 
         print "</table>";
     }
 
-    echo "<a href='cerrarSesion.php'>Cerrar sesión</a>";
+    echo "<br><a  class='btn btn-warning' href='cerrarSesion.php'>Cerrar sesión</a>";
 } else {
     // No se encontró al usuario en la base de datos, esto puede ser un problema
     echo "Error: Usuario no encontrado en la base de datos.";
@@ -84,3 +103,5 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
 mysqli_stmt_close($stmt);
 mysqli_close($conexion);
 ?>
+</div>
+</body>
