@@ -69,6 +69,4 @@ $registro = mysqli_fetch_row($registros);
 
 </div>
 
-<?php
-include "footer.php";
-?>
+<?php include("footer_libros.php"); ?>
