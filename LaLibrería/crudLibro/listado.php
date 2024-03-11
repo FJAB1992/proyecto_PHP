@@ -58,7 +58,7 @@ include "header.php";
 
                 </div>
                 <!--otro icono curioso de back: bi bi-backspace -->
-                <a href="index.php"><i class="bi-arrow-return-left px-3" style="font-size:4rem; color:black;"></i></a>
+                <a href="dashboard.php"><i class="bi-arrow-return-left px-3" style="font-size:4rem; color:black;"></i></a>
             </div>
 
         </div>

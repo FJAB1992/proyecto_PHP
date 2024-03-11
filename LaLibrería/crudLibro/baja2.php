@@ -1,11 +1,11 @@
 <?php
 include "conexion.php";
 
-mysqli_select_db($conexion,"productosbd");
+mysqli_select_db($conexion,"libreria");
 
-$productoborrar = $_GET["id"];
+$libroborrar = $_GET["id"];
 
-$borrar = "DELETE FROM productos WHERE id_producto = '$productoborrar'";
+$borrar = "DELETE FROM libros WHERE id_producto = '$libroborrar'";
 mysqli_query($conexion,$borrar);
 header("Location: baja_ok.php");
 

@@ -8,7 +8,7 @@ include "header.php";
         <div class="col text-center">
             <div class="card">
                 <div class="card-header display-6">
-                    Listado de producto
+                    Listado de libros
                 </div>
             </div>
             <div class="row mt-3 justify-content-md-center">
@@ -18,8 +18,8 @@ include "header.php";
                             Productos:
                         </div>
                         <?php
-                        mysqli_select_db($conexion, "productosbd");
-                        $consulta = "SELECT * FROM productos";
+                        mysqli_select_db($conexion, "libreria");
+                        $consulta = "SELECT * FROM libros";
 
                         //Recogemos las filas
                         $registros = mysqli_query($conexion, $consulta);
@@ -30,12 +30,11 @@ include "header.php";
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">Identificador</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Descripción</th>
-                                    <th scope="col">Precio</th>
-                                    <th scope="col">Imagen</th>
-                                    <th scope="col">Borrar</th>
+                                    <th scope="col">Título</th>
+                                    <th scope="col">Autor</th>
+                                    <th scope="col">Género</th>
+                                    <th scope="col">Fecha publicación</th>
+                                    <th scope="col">Disponibilidad</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,11 +43,11 @@ include "header.php";
                                     //CIERRA EL WHILE EN EL SIGUIENTE SCRIPT
                                 ?>
                                     <tr class="align-middle">
-                                        <td scope="row"><?php echo $registro[0]; ?></td>
-                                        <td><?php echo $registro[1]; ?></td>
+                                        <td scope="row"><?php echo $registro[1]; ?></td>
                                         <td><?php echo $registro[2]; ?></td>
                                         <td><?php echo $registro[3]; ?></td>
-                                        <td><?php echo '<img width="150px" heigth="150px" src="imagenes/' . $registro[4] . '">'; ?></td>
+                                        <td><?php echo $registro[4]; ?></td>
+                                        <td><?php echo $registro[5]; ?></td>
                                         <td><a href="baja2.php?id=<?php echo $registro[0]; ?>"><i class="bi-trash px-1" style="font-size: 2rem; color:red"></i></a></td>
                                     </tr>
                                 <?php
@@ -60,7 +59,7 @@ include "header.php";
 
                 </div>
                 <!--otro icono curioso de back: bi bi-backspace -->
-                <a href="index.php"><i class="bi-arrow-return-left px-3" style="font-size:4rem; color:black;"></i></a>
+                <a href="dashboard.php"><i class="bi-arrow-return-left px-3" style="font-size:4rem; color:black;"></i></a>
             </div>
 
         </div>
