@@ -43,9 +43,7 @@ session_start();
             <a href="dashboard.php" class="btn btn-primary p-3 m-3">ir al dashboard</a>
         </div>
 
-        <div class="text-center p-3 m-3 bg-dark">
-            <p class="text-white">Proyecto desarrollado por: Daniel A. Molina - Francisco J. Aranda - Carlos Vallejo</p>
-        </div>
+        <?php include("footer_libros.php"); ?>
     </div>
 </body>
 
