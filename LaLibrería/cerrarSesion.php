@@ -26,7 +26,7 @@ session_destroy();
 </head>
 
 <body>
-    <div class="container text-center bg-success p-3">
+    <div class="container-fluid text-center bg-success p-3">
         <form method="post" action="login.php">
             <fieldset>
                 Sesión cerrada correctamente

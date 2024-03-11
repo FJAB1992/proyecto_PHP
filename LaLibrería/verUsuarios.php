@@ -21,7 +21,7 @@
 
 <body>
 
-    <div class="container text-center bg-success">
+    <div class="container-fluid text-center bg-success">
         <?php
 
 

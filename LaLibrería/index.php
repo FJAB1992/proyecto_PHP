@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div class="container text-center p-3 bg-success">
+    <div class="container-fluid text-center p-3 bg-success">
         <form id="form1" name="form1">
             <fieldset>
                 <legend class="text-center bg-warning">Mi Librería</legend>

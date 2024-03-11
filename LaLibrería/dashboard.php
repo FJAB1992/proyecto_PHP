@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div class="container text-center bg-success p-3">
+    <div class="container-fluid text-center bg-success p-3">
         <?php
         session_start();
 

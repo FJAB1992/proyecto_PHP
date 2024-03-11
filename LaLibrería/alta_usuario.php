@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <div class="container text-center p-3 bg-success">
+    <div class="container-fluid text-center p-3 bg-success">
         <!-- Formulario de registro -->
         <form id="form1" class="text-center bg-success" method="post" action="registro.php">
             <fieldset>
