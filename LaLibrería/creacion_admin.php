@@ -64,7 +64,7 @@
             echo "<input type='text' id='email' name='email' placeholder='Pon tu email' required>";
             echo "<br><br><label for='contraseña'>Contraseña: </label><br>";
             echo "<input type='password' id='contraseña' name='contraseña' placeholder='Pon tu contraseña' required><br><br>";
-            echo "<button class='btn btn-primary' type='submit'>Enviar</button>";
+            echo "<button class='btn btn-primary mb-3' type='submit'>Enviar</button>";
             echo "</form>";
             echo ("</div>");
         }

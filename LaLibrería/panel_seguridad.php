@@ -19,19 +19,18 @@
 
 <body>
     <div class="container text-center bg-success">
-    <form method="post" action="creacion_admin.php">
-        <fieldset>
-            <legend>Panel de Seguridad</legend>
-            <label for="contraseña">Contraseña:</label><br>
-            <input type="password" id="contraseña" name="contraseña" placeholder="Pon la contraseña" required><br><br>
-            <input class="btn btn-primary" type="submit" value="Enviar">
-        </fieldset>
-    </form>
-    <br>
-    <a href="iniciar_sesion.php">Pulsa aquí para volver al formulario de inicio de sesión</a>
+        <form method="post" action="creacion_admin.php">
+            <fieldset>
+                <legend>Panel de Seguridad</legend>
+                <label for="contraseña">Contraseña:</label><br>
+                <input type="password" id="contraseña" name="contraseña" placeholder="Pon la contraseña" required><br><br>
+                <input class="btn btn-primary" type="submit" value="Enviar">
+            </fieldset>
+        </form>
+        <br>
+        <a href="iniciar_sesion.php" class="btn btn-secondary btn-sg active mb-3">Pulsa aquí para volver al formulario de inicio de sesión</a>
     </div>
 
 </body>
 
 </html>
-

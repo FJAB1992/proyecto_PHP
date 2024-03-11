@@ -30,12 +30,17 @@
             <br><br>
             Contraseña: <input type="password" name="contraseña" required><br>
             <br>
-            <input name="registro" id="registro" class="btn btn-primary" type="submit" value="Registrarse" />
+            <input name="registro" id="registro" class="btn btn-primary m-3" type="submit" value="Registrarse" />
         </fieldset>
     </form>
     <div class="text-center bg-secondary"><br>
-        <a href="iniciar_sesion.php">Pulsa aquí para volver al formulario de inicio de sesión</a>      
+        <a href="panel_seguridad.php" class="btn btn-warning">Crear admin</a>      
     </div>
+
+    <div class="text-center bg-secondary"><br>
+        <a href="iniciar_sesion.php" class="btn btn-primary m-3">Pulsa aquí para volver al formulario de inicio de sesión</a>      
+    </div>
+    
 
 </body>
 
