@@ -10,7 +10,7 @@
     <style>
         a {
             text-decoration: none;
-            color: white;
+            color: black;
         }
     </style>
 </head>
@@ -43,10 +43,10 @@
                 $insertar = "INSERT INTO usuarios(nombre, email, contraseña, rol) VALUES ('$nombre', '$email', '$hash_contraseña', '$tipoUser')";
 
                 if (mysqli_query($conexion, $insertar)) {
-                    echo "Admin añadido exitosamente<br>";
+                    echo "<div class='text-center bg-success p-3'>Admin añadido exitosamente<br>";
                     session_start();
                     session_destroy();
-                    echo "<a href='iniciar_sesion.php'>Ir a iniciar sesión</a><br>";
+                    echo "<a class='btn btn-primary' href='iniciar_sesion.php'>Ir a iniciar sesión</a><br> </div>";
                 } else {
                     echo "Error al agregar usuario: " . mysqli_error($conexion);
                 }

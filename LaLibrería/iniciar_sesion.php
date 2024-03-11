@@ -33,7 +33,7 @@ session_start();
                 <br><br>
                 Contraseña: <input type="password" name="contraseña" required><br>
                 <br>
-                <input type="submit" value="Iniciar sesión">
+                <input class="btn btn-primary" type="submit" value="Iniciar sesión">
                 <br>
             </fieldset>
         </form>

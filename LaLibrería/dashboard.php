@@ -74,11 +74,11 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
         //Para identificar facilmente el id del libro a reservar
         $codigo=1;
 
-        print "<table>";
-        print"<tr><th>titulo</th>";
-        print"<th>autor</th>";
-        print"<th>genero</th>";
-        print"<th>publicacion</th>";
+        print "<table class='table p-3'>";
+        print"<tr class='table-warning'><th>Título</th>";
+        print"<th>Autor</th>";
+        print"<th>Género</th>";
+        print"<th>Publicación</th>";
         print"<th>Acciones</th></tr>";
         while($registro=mysqli_fetch_row($registros)){
 
@@ -87,7 +87,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
             print"<td>$registro[3]</td>";
             print"<td>$registro[4]</td>";
             //En este enlace se pasa el codigo del libro como variable
-            print"<td><a class='btn btn-primary' href='reserva_libro.php?codigo=$codigo'>Reservar</a></td></tr>";
+            print"<td class='bg-secondary'><a class='btn btn-primary' href='reserva_libro.php?codigo=$codigo'>Reservar</a></td></tr>";
             $codigo= $codigo+1;
         }
 
