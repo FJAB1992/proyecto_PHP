@@ -2,9 +2,9 @@
 include "header.php";
 include "conexion.php";
 
-mysqli_select_db($conexion, "productosbd");
-$productosactualizar = $_GET["id"];
-$seleccionar = "SELECT * FROM productos WHERE id_producto = '$productosactualizar'";
+mysqli_select_db($conexion, "libreria");
+$librosactualizar = $_GET["id"];
+$seleccionar = "SELECT * FROM libros WHERE id_libro = '$librosactualizar'";
 $registros = mysqli_query($conexion, $seleccionar);
 $registro = mysqli_fetch_row($registros);
 ?>
@@ -14,7 +14,7 @@ $registro = mysqli_fetch_row($registros);
         <div class="col text-center">
             <div class="card">
                 <div class="card-header display-6">
-                    Actualización de producto
+                    Actualización de libro
                 </div>
             </div>
             <div class="row mt-3 justify-content-md-center">
@@ -23,35 +23,29 @@ $registro = mysqli_fetch_row($registros);
                         <div class="card-header">
                             Ingresar datos:
                         </div>
-                        <!-- MULTIPART/FORMDATA para incluir ficheros -->
-                        <form class="p-4" method="POST" action="actualizar3.php?idmodifica=
-                        <?php echo $productosactualizar ?>&nombreimagen=<?php echo $registro[4]; ?>" enctype="multipart/form-data">
+                        <form class="p-4" method="POST" action="actualizar3.php?idmodifica=<?php echo $librosactualizar ?>">
                             <div class="mb-3">
-                                <label for="identificador" class="form-label">Identificador</label>
-                                <input type="number" class="form-control" name="identificador" id="identificador" autofocus placeholder="Introduce Id" required 
-                                value="<?php echo $registro[0]; ?>" />
+                                <label for="titulo" class="form-label">Título</label>
+                                <input type="text" class="form-control" name="titulo" id="titulo" autofocus placeholder="Titulo" required value="<?php echo $registro[1]; ?>" />
                             </div>
                             <div class="mb-3">
-                                <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Introduce nombre" required value="<?php echo $registro[1]; ?>" />
+                                <label for="autor" class="form-label">Autor</label>
+                                <input type="text" class="form-control" name="autor" id="autor" placeholder="Introduce autor" required value="<?php echo $registro[2]; ?>" />
                             </div>
                             <div class="mb-3">
-                                <label for="descripcion" class="form-label">Descripción</label>
-                                <!-- OJO     -->
-                                <textarea class="form-control" name="descripcion" id="descripcion" rows="3"><?php echo $registro[2]; ?>
-                                </textarea>
+                                <label for="genero" class="form-label">Género</label>
+                                <input type="text" class="form-control" name="genero" id="genero" placeholder="Introduce genero" required value="<?php echo $registro[3]; ?>" />
                             </div>
                             <div class="mb-3">
-                                <label for="precio" class="form-label">Precio</label>
-                                <input type="number" class="form-control" name="precio" id="precio" placeholder="Introduce precio" required value="<?php echo $registro[3]; ?>" />
+                                <label for="fecha" class="form-label">Fecha publicación</label>
+                                <input type="date" class="form-control" name="fecha" id="fecha" placeholder="Introduce fecha" required value="<?php echo $registro[4]; ?>" />
                             </div>
                             <div class="mb-3">
-                                <label for="precio" class="form-label">Imagen antigua</label>
-                                <?php echo '<img width="100px heigth="100px" src="imagenes/' . $registro[4] . '">'; ?>
-                            </div>
-                            <div class="mb-3">
-                                <label for="imagen" class="form-label">Imagen Nueva</label>
-                                <input type="file" class="form-control" name="imagen" id="imagen" accept="image/*" />
+                                <label for="disponibilidad" class="form-label">Disponibilidad</label>
+                                <select class="form-select" name="disponibilidad" id="disponibilidad" required>
+                                    <option value="1" <?php if ($registro[5] == 1) echo "selected"; ?>>Disponible</option>
+                                    <option value="0" <?php if ($registro[5] == 0) echo "selected"; ?>>No Disponible</option>
+                                </select>
                             </div>
                             <div class="d-grid">
                                 <input type="submit" class="btn btn-primary" value="Actualizar">
@@ -62,11 +56,8 @@ $registro = mysqli_fetch_row($registros);
                 <!--otro icono curioso de back: bi bi-backspace -->
                 <a href="index.php"><i class="bi-arrow-return-left px-3" style="font-size:4rem; color:black;"></i></a>
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 <?php include("footer_libros.php"); ?>

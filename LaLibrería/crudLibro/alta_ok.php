@@ -7,7 +7,7 @@ include "header.php";
         <div class="col text-center">
             <div class="card">
                 <div class="card-header display-6">
-                    Alta de producto realizada con éxito
+                    Alta de libro realizada con éxito
 
                 </div>
 
