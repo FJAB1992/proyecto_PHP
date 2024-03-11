@@ -9,15 +9,12 @@ include "header.php";
             <div class="col text-center">
                 <div class="card">
                     <div class="card-header display-6">
-                        Actualización de libro
+                        Actualizar libro
                     </div>
                 </div>
                 <div class="row mt-3 justify-content-md-center">
                     <div class="col-md-6">
                         <div class="card">
-                            <div class="card-header">
-                                Libros:
-                            </div>
                             <?php
                             mysqli_select_db($conexion, "libreria");
                             $consulta = "SELECT * FROM libros";

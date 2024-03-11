@@ -7,7 +7,7 @@ include "header.php";
         <div class="col text-center">
             <div class="card">
                 <div class="card-header display-6">
-                    Acciones sobre la BD
+                    Opciones
                 </div>
                 <div class="p-4">
                     <!-- Shortcut: bs5-table-default -->
@@ -15,32 +15,32 @@ include "header.php";
                         <table class="table table-primary">
                             <thead>
                                 <tr>
-                                    <th scope="col">Alta de producto</th>
-                                    <th scope="col">Baja de producto</th>
-                                    <th scope="col">Actualización de producto</th>
-                                    <th scope="col">Listado de producto</th>
+                                    <th scope="col">Agregar libro</th>
+                                    <th scope="col">Retirar libro</th>
+                                    <th scope="col">Actualizar libro</th>
+                                    <th scope="col">Listado de libros</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="">
                                     <td scope="row">
                                         <a href="alta.php">
-                                            <i class="bi-database-add px-3" style="font-size: 4rem; color:orange;"></i>
+                                            <i class="bi bi-journal-plus px-3" style="font-size: 4rem; color:orange;"></i>
                                         </a>
                                     </td>
                                     <td>
                                         <a href="baja.php">
-                                            <i class="bi-database-dash px-3" style="font-size: 4rem; color:orange;"></i>
+                                            <i class="bi bi-journal-minus px-3" style="font-size: 4rem; color:orange;"></i>
                                         </a>
                                     </td>
                                     <td>
                                         <a href="actualiza.php">
-                                            <i class="bi-database-check px-3" style="font-size: 4rem; color:orange;"></i>
+                                            <i class="bi bi-journals px-3" style="font-size: 4rem; color:orange;"></i>
                                         </a>
                                     </td>
                                     <td>
                                         <a href="listado.php">
-                                            <i class="bi-database-down px-3" style="font-size: 4rem; color:orange;"></i>
+                                            <i class="bi bi-journal-bookmark-fill px-3" style="font-size: 4rem; color:orange;"></i>
                                         </a>
                                     </td>
                                 </tr>

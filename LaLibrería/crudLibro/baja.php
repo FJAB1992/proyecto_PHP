@@ -14,9 +14,6 @@ include "header.php";
             <div class="row mt-3 justify-content-md-center">
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header">
-                            Productos:
-                        </div>
                         <?php
                         mysqli_select_db($conexion, "libreria");
                         $consulta = "SELECT * FROM libros";

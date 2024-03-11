@@ -7,23 +7,20 @@ include "header.php";
         <div class="col text-center">
             <div class="card">
                 <div class="card-header display-6">
-                    Alta de producto
+                    Ingresar datos
                 </div>
             </div>
             <div class="row mt-3 justify-content-md-center">
                 <div class="col-md-4">
                     <div class="card">
-                        <div class="card-header">
-                            Ingresar datos:
-                        </div>
                         <form class="p-4" method="POST" action="registrar.php" enctype="multipart/form-data">
-                        <div class="mb-3">
+                            <div class="mb-3">
                                 <label for="titulo" class="form-label">Título</label>
-                                <input type="text" class="form-control" name="titulo" id="titulo" autofocus placeholder="Titulo" required/>
+                                <input type="text" class="form-control" name="titulo" id="titulo" autofocus placeholder="Titulo" required />
                             </div>
                             <div class="mb-3">
                                 <label for="autor" class="form-label">Autor</label>
-                                <input type="text" class="form-control" name="autor" id="autor" placeholder="Introduce autor" required/>
+                                <input type="text" class="form-control" name="autor" id="autor" placeholder="Introduce autor" required />
                             </div>
                             <div class="mb-3">
                                 <label for="genero" class="form-label">Género</label>

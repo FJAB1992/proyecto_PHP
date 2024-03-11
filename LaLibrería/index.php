@@ -22,7 +22,7 @@
         <form id="form1" name="form1">
             <fieldset>
                 <legend class="text-center bg-warning">Mi Librería</legend>
-                <img class="p-3" src="libreria.jpg">
+                <img class="p-3" src="libreria.jpg" alt="libreria" width="600" >
                 <br>
                 <input class="btn btn-primary p-3" type="button" value="Acceder" onclick="window.location.href='iniciar_sesion.php'">
             </fieldset>
