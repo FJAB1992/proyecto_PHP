@@ -39,7 +39,7 @@
         $cambiado = "";
         print("<div class='table-responsive'>");
         print "<table class='table table-primary'>";
-        print "<tr><th scope='col'>Nombre</th>";
+        print "<tr class='table-dark'><th scope='col'>Nombre</th>";
         print "<th scope='col'>Email</th>";
         print "<th scope='col'>Contraseña</th>";
         print "<th scope='col'>Rol</th>";

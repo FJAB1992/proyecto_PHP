@@ -41,7 +41,7 @@ session_start();
     <div class="text-center p-3 bg-flat bg-secondary">
         <form method="post" action="alta_usuario.php">
             <fieldset>
-                <legend>Nuevo usuario? </legend>
+                <legend>Nuevo usuario </legend>
                 <a href="alta_usuario.php" class="btn btn-primary">Crear cuenta</a>
             </fieldset>
         </form>

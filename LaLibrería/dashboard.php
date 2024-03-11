@@ -94,7 +94,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
         print "</table>";
     }
 
-    echo "<br><a  class='btn btn-warning' href='cerrarSesion.php'>Cerrar sesión</a>";
+    echo "<br><a  class='btn btn-warning p-3 m-3' href='cerrarSesion.php'>Cerrar sesión</a>";
 } else {
     // No se encontró al usuario en la base de datos, esto puede ser un problema
     echo "Error: Usuario no encontrado en la base de datos.";

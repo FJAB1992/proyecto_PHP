@@ -39,7 +39,7 @@ session_start();
         </fieldset>
     </form>
     <div class="text-center bg-secondary"><br>
-        <a href="dashboard.php">ir al dashboard</a>
+        <a href="dashboard.php" class="btn btn-primary p-3 m-3">ir al dashboard</a>
     </div>
 
 </body>
