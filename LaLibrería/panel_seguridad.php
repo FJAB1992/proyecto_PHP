@@ -30,6 +30,8 @@
     <br>
     <a href="iniciar_sesion.php">Pulsa aquí para volver al formulario de inicio de sesión</a>
     </div>
+
 </body>
 
 </html>
+
