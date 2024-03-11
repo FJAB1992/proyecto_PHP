@@ -16,27 +16,29 @@ include "header.php";
                         <div class="card-header">
                             Ingresar datos:
                         </div>
-                        <!-- MULTIPART/FORMDATA para incluir ficheros -->
                         <form class="p-4" method="POST" action="registrar.php" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label for="identificador" class="form-label">Identificador</label>
-                                <input type="number" class="form-control" name="identificador" id="identificador" autofocus placeholder="Introduce Id" required />
+                        <div class="mb-3">
+                                <label for="titulo" class="form-label">Título</label>
+                                <input type="text" class="form-control" name="titulo" id="titulo" autofocus placeholder="Titulo" required/>
                             </div>
                             <div class="mb-3">
-                                <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Introduce nombre" required />
+                                <label for="autor" class="form-label">Autor</label>
+                                <input type="text" class="form-control" name="autor" id="autor" placeholder="Introduce autor" required/>
                             </div>
                             <div class="mb-3">
-                                <label for="descripcion" class="form-label">Descripción</label>
-                                <textarea class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
+                                <label for="genero" class="form-label">Género</label>
+                                <input type="text" class="form-control" name="genero" id="genero" placeholder="Introduce genero" required />
                             </div>
                             <div class="mb-3">
-                                <label for="precio" class="form-label">Precio</label>
-                                <input type="number" class="form-control" name="precio" id="precio" placeholder="Introduce precio" required />
+                                <label for="fecha" class="form-label">Fecha publicación</label>
+                                <input type="date" class="form-control" name="fecha" id="fecha" placeholder="Introduce fecha" required />
                             </div>
                             <div class="mb-3">
-                                <label for="imagen" class="form-label">Imagen</label>
-                                <input type="file" class="form-control" name="imagen" id="imagen" accept="image/*" required />
+                                <label for="disponibilidad" class="form-label">Disponibilidad</label>
+                                <select class="form-select" name="disponibilidad" id="disponibilidad" required>
+                                    <option value="1">Disponible</option>
+                                    <option value="0">No Disponible</option>
+                                </select>
                             </div>
                             <div class="d-grid">
                                 <input type="submit" class="btn btn-primary" value="Dar de alta">
@@ -45,7 +47,7 @@ include "header.php";
                     </div>
                 </div>
                 <!--otro icono curioso de back: bi bi-backspace -->
-                <a href="index.php"><i class="bi-arrow-return-left px-3" style="font-size:4rem; color:black;"></i></a>
+                <a href="dashboard.php"><i class="bi-arrow-return-left px-3" style="font-size:4rem; color:black;"></i></a>
             </div>
 
         </div>
