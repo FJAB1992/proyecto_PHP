@@ -37,7 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $usuario = $resultado->fetch_assoc();
 
                 // Verificación de la contraseña utilizando password_verify
-                if (password_verify($contraseña, $usuario['contraseña'])) {
+                echo $usuario["contraseña"] , $contraseña;
+
+                
+                if ($contraseña == $usuario["contraseña"]) {
                     
                     // Usuario autenticado
 

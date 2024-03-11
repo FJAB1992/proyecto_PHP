@@ -36,10 +36,43 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
 
     if ($registro['rol'] == 'admin') {
         // Resto del código para administrador
-        echo "<p>Eres un administrador.</p>";
+        echo "<p>Eres un administrador.</p><br>";
+        echo("<a href='cambiarContraseña.php?'>Cambiar contraseña de acceso</a>");print("<br>"); 
+        echo("<a href='verUsuarios.php?'>Ver usuarios</a>");print("<br>");
+
+
+
     } else {
         // Resto del código para usuario
         echo "<p>Eres un usuario.</p>";
+
+        print "<h1>Libros disponibles</h1>";
+
+        $consultar= "SELECT * FROM libros WHERE disponibilidad=1";
+
+        $registros= mysqli_query($conexion, $consultar);
+        $cambiado= "";
+        //Para identificar facilmente el id del libro a reservar
+        $codigo=1;
+
+        print "<table>";
+        print"<tr><th>titulo</th>";
+        print"<th>autor</th>";
+        print"<th>genero</th>";
+        print"<th>publicacion</th>";
+        print"<th>Acciones</th></tr>";
+        while($registro=mysqli_fetch_row($registros)){
+
+            print"<tr><td>$registro[1]</td>";
+            print"<td>$registro[2]</td>";
+            print"<td>$registro[3]</td>";
+            print"<td>$registro[4]</td>";
+            //En este enlace se pasa el codigo del libro como variable
+            print"<td><a href='reserva_libro.php?codigo=$codigo'>Reservar</a></td></tr>";
+            $codigo= $codigo+1;
+        }
+
+        print "</table>";
     }
 
     echo "<a href='cerrarSesion.php'>Cerrar sesión</a>";
