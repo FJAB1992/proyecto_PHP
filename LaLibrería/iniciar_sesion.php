@@ -17,8 +17,9 @@ session_start();
             text-decoration: none;
             color: black;
         }
-        legend{
-            color:yellow;
+
+        legend {
+            color: yellow;
         }
     </style>
 </head>
@@ -45,14 +46,19 @@ session_start();
                 <a href="alta_usuario.php" class="btn btn-primary">Crear cuenta</a>
             </fieldset>
         </form>
-    </div>
-    <br>
 
-    <?php
-    if (isset($_SESSION['id_usuario']) && $_SESSION['rol'] == 'user') {
-        echo "Sesión iniciada por: <br>" . $_SESSION['correo'];
-    }
-    ?>
+        <br>
+
+        <?php
+        if (isset($_SESSION['id_usuario']) && $_SESSION['rol'] == 'user') {
+            echo "Sesión iniciada por: <br>" . $_SESSION['correo'];
+        }
+        ?>
+
+        <div class="text-center p-3 m-3 bg-dark">
+            <p class="text-white">Proyecto desarrollado por: Daniel A. Molina - Francisco J. Aranda - Carlos Vallejo</p>
+        </div>
+    </div>
 </body>
 
 </html>

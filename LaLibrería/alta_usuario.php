@@ -19,29 +19,33 @@
 </head>
 
 <body>
-    <!-- Formulario de registro -->
-    <form id="form1" class="text-center bg-success" method="post" action="registro.php">
-        <fieldset>
-            <legend>Añadir usuario</legend>
-            <br><br>
-            Nombre usuario: <input type="text" name="nombre" required>
-            <br><br>
-            Correo: <input type="email" name="email" required>
-            <br><br>
-            Contraseña: <input type="password" name="contraseña" required><br>
-            <br>
-            <input name="registro" id="registro" class="btn btn-primary m-3" type="submit" value="Registrarse" />
-        </fieldset>
-    </form>
-    <div class="text-center bg-secondary"><br>
-        <a href="panel_seguridad.php" class="btn btn-warning">Crear admin</a>      
-    </div>
+    <div class="container text-center p-3 bg-success">
+        <!-- Formulario de registro -->
+        <form id="form1" class="text-center bg-success" method="post" action="registro.php">
+            <fieldset>
+                <legend>Añadir usuario</legend>
+                <br><br>
+                Nombre usuario: <input type="text" name="nombre" required>
+                <br><br>
+                Correo: <input type="email" name="email" required>
+                <br><br>
+                Contraseña: <input type="password" name="contraseña" required><br>
+                <br>
+                <input name="registro" id="registro" class="btn btn-primary m-3" type="submit" value="Registrarse" />
+            </fieldset>
+        </form>
+        <div class="text-center bg-secondary"><br>
+            <a href="panel_seguridad.php" class="btn btn-warning">Crear admin</a>
+        </div>
 
-    <div class="text-center bg-secondary"><br>
-        <a href="iniciar_sesion.php" class="btn btn-primary m-3">Pulsa aquí para volver al formulario de inicio de sesión</a>      
-    </div>
-    
+        <div class="text-center bg-secondary"><br>
+            <a href="iniciar_sesion.php" class="btn btn-primary m-3">Pulsa aquí para volver al formulario de inicio de sesión</a>
+        </div>
 
+        <div class="text-center p-3 m-3 bg-dark">
+            <p class="text-white">Proyecto desarrollado por: Daniel A. Molina - Francisco J. Aranda - Carlos Vallejo</p>
+        </div>
+    </div>
 </body>
 
 </html>

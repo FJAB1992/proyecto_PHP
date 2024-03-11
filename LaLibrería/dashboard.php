@@ -16,92 +16,96 @@
         }
     </style>
 </head>
+
 <body>
-<?php
-session_start();
+    <div class="container text-center bg-success p-3">
+        <?php
+        session_start();
 
-// Manejo de errores
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+        // Manejo de errores
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
 
-// Incluir el archivo de conexión
-require_once('conexion.php');
+        // Incluir el archivo de conexión
+        require_once('conexion.php');
 
-// Variable de la conexión (asegúrate de tener la configuración correcta aquí)
-$conexion = mysqli_connect($servidor, $usuario, $password, $basedatos);
+        // Variable de la conexión (asegúrate de tener la configuración correcta aquí)
+        $conexion = mysqli_connect($servidor, $usuario, $password, $basedatos);
 
-// Verificar la conexión
-if (!$conexion) {
-    die("Error de conexión: " . mysqli_connect_error());
-}
-
-// Obtener información del usuario de la sesión
-$email = $_SESSION['correo'];
-
-// Consulta SQL para obtener información del usuario
-$consulta = "SELECT * FROM usuarios WHERE email=?";
-$stmt = mysqli_prepare($conexion, $consulta);
-mysqli_stmt_bind_param($stmt, "s", $email);
-mysqli_stmt_execute($stmt);
-$resultado = mysqli_stmt_get_result($stmt);
-
-// Verificar si se encontró al menos un registro
-if ($resultado && mysqli_num_rows($resultado) > 0) {
-    $registro = mysqli_fetch_assoc($resultado);
-    $nombre = $registro['nombre'];
-
-    echo "<div class='container text-center bg-success'><h1>Bienvenido $nombre</h1>";
-
-    if ($registro['rol'] == 'admin') {
-        // Resto del código para administrador
-        echo "<p>Eres un administrador.</p><br>";
-        echo("<a class='btn btn-primary' href='cambiarContraseña.php?'>Cambiar contraseña de acceso</a>");print("<br><br>"); 
-        echo("<a class='btn btn-primary' href='verUsuarios.php?'>Ver usuarios</a>");print("<br><br>");
-
-
-
-    } else {
-        // Resto del código para usuario
-        echo "<p>Eres un usuario.</p>";
-
-        print "<h1>Libros disponibles</h1>";
-
-        $consultar= "SELECT * FROM libros WHERE disponibilidad=1";
-
-        $registros= mysqli_query($conexion, $consultar);
-        $cambiado= "";
-        //Para identificar facilmente el id del libro a reservar
-        $codigo=1;
-
-        print "<table class='table p-3'>";
-        print"<tr class='table-warning'><th>Título</th>";
-        print"<th>Autor</th>";
-        print"<th>Género</th>";
-        print"<th>Publicación</th>";
-        print"<th>Acciones</th></tr>";
-        while($registro=mysqli_fetch_row($registros)){
-
-            print"<tr><td>$registro[1]</td>";
-            print"<td>$registro[2]</td>";
-            print"<td>$registro[3]</td>";
-            print"<td>$registro[4]</td>";
-            //En este enlace se pasa el codigo del libro como variable
-            print"<td class='bg-secondary'><a class='btn btn-primary' href='reserva_libro.php?codigo=$codigo'>Reservar</a></td></tr>";
-            $codigo= $codigo+1;
+        // Verificar la conexión
+        if (!$conexion) {
+            die("Error de conexión: " . mysqli_connect_error());
         }
 
-        print "</table>";
-    }
+        // Obtener información del usuario de la sesión
+        $email = $_SESSION['correo'];
 
-    echo "<br><a  class='btn btn-warning p-3 m-3' href='cerrarSesion.php'>Cerrar sesión</a>";
-} else {
-    // No se encontró al usuario en la base de datos, esto puede ser un problema
-    echo "Error: Usuario no encontrado en la base de datos.";
-}
+        // Consulta SQL para obtener información del usuario
+        $consulta = "SELECT * FROM usuarios WHERE email=?";
+        $stmt = mysqli_prepare($conexion, $consulta);
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        $resultado = mysqli_stmt_get_result($stmt);
 
-mysqli_stmt_close($stmt);
-mysqli_close($conexion);
-?>
-</div>
+        // Verificar si se encontró al menos un registro
+        if ($resultado && mysqli_num_rows($resultado) > 0) {
+            $registro = mysqli_fetch_assoc($resultado);
+            $nombre = $registro['nombre'];
+
+            echo "<div class='container text-center bg-success'><h1>Bienvenido $nombre</h1>";
+
+            if ($registro['rol'] == 'admin') {
+                // Resto del código para administrador
+                echo "<p>Eres un administrador.</p><br>";
+                echo ("<a class='btn btn-primary' href='cambiarContraseña.php?'>Cambiar contraseña de acceso</a>");
+                print("<br><br>");
+                echo ("<a class='btn btn-primary' href='verUsuarios.php?'>Ver usuarios</a>");
+                print("<br><br>");
+            } else {
+                // Resto del código para usuario
+                echo "<p>Eres un usuario.</p>";
+
+                print "<h1>Libros disponibles</h1>";
+
+                $consultar = "SELECT * FROM libros WHERE disponibilidad=1";
+
+                $registros = mysqli_query($conexion, $consultar);
+                $cambiado = "";
+                //Para identificar facilmente el id del libro a reservar
+                $codigo = 1;
+
+                print "<table class='table p-3'>";
+                print "<tr class='table-warning'><th>Título</th>";
+                print "<th>Autor</th>";
+                print "<th>Género</th>";
+                print "<th>Publicación</th>";
+                print "<th>Acciones</th></tr>";
+                while ($registro = mysqli_fetch_row($registros)) {
+
+                    print "<tr><td>$registro[1]</td>";
+                    print "<td>$registro[2]</td>";
+                    print "<td>$registro[3]</td>";
+                    print "<td>$registro[4]</td>";
+                    //En este enlace se pasa el codigo del libro como variable
+                    print "<td class='bg-secondary'><a class='btn btn-primary' href='reserva_libro.php?codigo=$codigo'>Reservar</a></td></tr>";
+                    $codigo = $codigo + 1;
+                }
+
+                print "</table>";
+            }
+
+            echo "<br><a  class='btn btn-warning p-3 m-3' href='cerrarSesion.php'>Cerrar sesión</a>";
+        } else {
+            // No se encontró al usuario en la base de datos, esto puede ser un problema
+            echo "Error: Usuario no encontrado en la base de datos.";
+        }
+
+        mysqli_stmt_close($stmt);
+        mysqli_close($conexion);
+        ?>
+        <div class="text-center p-3 m-3 bg-dark">
+            <p class="text-white">Proyecto desarrollado por: Daniel A. Molina - Francisco J. Aranda - Carlos Vallejo</p>
+        </div>
+    </div>
 </body>

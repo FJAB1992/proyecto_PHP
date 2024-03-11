@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div class="container text-center bg-success">
+    <div class="container text-center bg-success p-3">
         <form method="post" action="creacion_admin.php">
             <fieldset>
                 <legend>Panel de Seguridad</legend>
@@ -29,6 +29,9 @@
         </form>
         <br>
         <a href="iniciar_sesion.php" class="btn btn-secondary btn-sg active mb-3">Pulsa aquí para volver al formulario de inicio de sesión</a>
+        <div class="text-center p-3 m-6 bg-dark">
+            <p class="text-white">Proyecto desarrollado por: Daniel A. Molina - Francisco J. Aranda - Carlos Vallejo</p>
+        </div>
     </div>
 
 </body>

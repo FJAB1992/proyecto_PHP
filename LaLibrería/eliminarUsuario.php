@@ -19,8 +19,8 @@
     </style>
 </head>
 
-<div  class="container text-center bg-success p-3">
-<?php
+<div class="container text-center bg-success p-3">
+    <?php
     //Me traigo la sesion
     session_start();
 
@@ -28,23 +28,26 @@
     require_once('conexion.php');
 
     //Recoger el codigo
-    $codigo= $_GET["codigo"];
+    $codigo = $_GET["codigo"];
 
     print "<h1>Informacion de usuarios</h1>";
 
-    $consultarUser= "SELECT * FROM usuarios WHERE id_usuario=$codigo";
+    $consultarUser = "SELECT * FROM usuarios WHERE id_usuario=$codigo";
 
-    $registros= mysqli_query($conexion, $consultarUser);
-    
+    $registros = mysqli_query($conexion, $consultarUser);
 
 
-    while($registro=mysqli_fetch_row($registros)){
-        print"Seguro que quiere borrar el usuario $registro[1]  ?<br>";
-        print"<a href='eliminacionUsuario.php?codigo=$codigo' class='btn btn-danger p-3 m-3'>Confirmar</a><br>      ";
-        print"<a href='verUsuarios.php?' class='btn btn-primary p-3 m-3'>Ver usuarios</a>      <br>";
-        print"<a href='dashboard.php?' class='btn btn-secondary p-3 m-3'>Volver al dashboard</a>";
+
+    while ($registro = mysqli_fetch_row($registros)) {
+        print "Seguro que quiere borrar el usuario $registro[1]  ?<br>";
+        print "<a href='eliminacionUsuario.php?codigo=$codigo' class='btn btn-danger p-3 m-3'>Confirmar</a><br>      ";
+        print "<a href='verUsuarios.php?' class='btn btn-primary p-3 m-3'>Ver usuarios</a>      <br>";
+        print "<a href='dashboard.php?' class='btn btn-secondary p-3 m-3'>Volver al dashboard</a>";
     }
-?>
+    ?>
+    <div class="text-center p-3 m-3 bg-dark">
+        <p class="text-white">Proyecto desarrollado por: Daniel A. Molina - Francisco J. Aranda - Carlos Vallejo</p>
+    </div>
 </div>
 
 </html>

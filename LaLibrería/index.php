@@ -19,13 +19,17 @@
 
 <body>
     <div class="container text-center p-3 bg-success">
-    <form id="form1" name="form1">
-        <fieldset>
-            <legend class="text-center bg-warning">Mi Librería</legend>
-            <img class="p-3" src="libreria.jpg">
-            <br>
-            <input class="btn btn-primary p-3" type="button" value="Acceder" onclick="window.location.href='iniciar_sesion.php'">
-        </fieldset>
-    </form>
+        <form id="form1" name="form1">
+            <fieldset>
+                <legend class="text-center bg-warning">Mi Librería</legend>
+                <img class="p-3" src="libreria.jpg">
+                <br>
+                <input class="btn btn-primary p-3" type="button" value="Acceder" onclick="window.location.href='iniciar_sesion.php'">
+            </fieldset>
+        </form>
+        <div class="text-center p-3 m-3 bg-dark">
+            <p class="text-white">Proyecto desarrollado por: Daniel A. Molina - Francisco J. Aranda - Carlos Vallejo</p>
+        </div>
     </div>
+
 </body>

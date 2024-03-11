@@ -26,14 +26,17 @@ session_destroy();
 </head>
 
 <body>
-    <div class="container text-center bg-success">
-    <form method="post" action="login.php">
-        <fieldset>
-            Sesión cerrada correctamente
-            <br>
-            <a class="btn btn-primary" href="index.php">Volver</a>
-        </fieldset>
-    </form>
+    <div class="container text-center bg-success p-3">
+        <form method="post" action="login.php">
+            <fieldset>
+                Sesión cerrada correctamente
+                <br><br>
+                <a class="btn btn-primary" href="index.php">Volver</a>
+            </fieldset>
+        </form>
+        <div class="text-center p-3 m-3 bg-dark">
+            <p class="text-white">Proyecto desarrollado por: Daniel A. Molina - Francisco J. Aranda - Carlos Vallejo</p>
+        </div>
     </div>
 </body>
 

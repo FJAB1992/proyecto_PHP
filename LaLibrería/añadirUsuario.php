@@ -23,25 +23,30 @@ session_start();
 </head>
 
 <body>
-    <!-- Formulario de registro -->
-    <form id="form1" class="text-center bg-success" method="post" action="registrarUsuario.php">
-        <fieldset>
-            <legend>Registro en mi Librería</legend>
-            <br><br>
-            Nombre usuario: <input type="text" name="nombre" required>
-            <br><br>
-            Correo: <input type="email" name="email" required>
-            <br><br>
-            Contraseña: <input type="password" name="contraseña" required><br>
-            <br>
-            tipo (admin/usuario): <input type="text" name="rol" required>
-            <input name="registro" id="registro" class="btn btn-primary" type="submit" value="Registrarse" />
-        </fieldset>
-    </form>
-    <div class="text-center bg-secondary"><br>
-        <a href="dashboard.php" class="btn btn-primary p-3 m-3">ir al dashboard</a>
-    </div>
+    <div class="container text-center p-3 bg-success">
+        <!-- Formulario de registro -->
+        <form id="form1" class="text-center bg-success" method="post" action="registrarUsuario.php">
+            <fieldset>
+                <legend>Registro en mi Librería</legend>
+                <br><br>
+                Nombre usuario: <input type="text" name="nombre" required>
+                <br><br>
+                Correo: <input type="email" name="email" required>
+                <br><br>
+                Contraseña: <input type="password" name="contraseña" required><br>
+                <br>
+                tipo (admin/usuario): <input type="text" name="rol" required>
+                <input name="registro" id="registro" class="btn btn-primary" type="submit" value="Registrarse" />
+            </fieldset>
+        </form>
+        <div class="text-center bg-secondary"><br>
+            <a href="dashboard.php" class="btn btn-primary p-3 m-3">ir al dashboard</a>
+        </div>
 
+        <div class="text-center p-3 m-3 bg-dark">
+            <p class="text-white">Proyecto desarrollado por: Daniel A. Molina - Francisco J. Aranda - Carlos Vallejo</p>
+        </div>
+    </div>
 </body>
 
 </html>
