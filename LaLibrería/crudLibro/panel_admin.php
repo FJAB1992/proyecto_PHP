@@ -49,8 +49,10 @@ include "header.php";
                     </div>
                 </div>
             </div>
+            <br><br>
+            <button class="btn btn-primary" style="color:white;text-decoration:none"><a href="../dashboard.php">Volver</a></button>
         </div>
     </div>
 </div>
 
-<?php include("footer_libros.php"); ?>
+<?php include("../footer_libros.php"); ?>

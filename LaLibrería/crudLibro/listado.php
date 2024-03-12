@@ -56,7 +56,7 @@ include "header.php";
 
                 </div>
                 <!--otro icono curioso de back: bi bi-backspace -->
-                <a href="dashboard.php"><i class="bi-arrow-return-left px-3" style="font-size:4rem; color:black;"></i></a>
+                <a href="panel_admin.php"><i class="bi-arrow-return-left px-3" style="font-size:4rem; color:black;"></i></a>
             </div>
 
         </div>
@@ -64,4 +64,4 @@ include "header.php";
     </div>
 
 </div>
-<?php include("footer_libros.php"); ?>
+<?php include("../footer_libros.php"); ?>

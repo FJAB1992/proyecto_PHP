@@ -21,4 +21,4 @@ include "header.php";
 
 
 
-<?php include("footer_libros.php"); ?>
+<?php include("../footer_libros.php"); ?>

@@ -62,6 +62,8 @@
                 print("<br><br>");
                 echo ("<a class='btn btn-primary' href='verUsuarios.php?'>Ver usuarios</a>");
                 print("<br><br>");
+                echo ("<a class='btn btn-primary' href='crudLibro/panel_admin.php?'>Panel administración</a>");
+                print("<br><br>");
             } else {
                 // Resto del código para usuario
                 echo "<p>Eres un usuario.</p>";

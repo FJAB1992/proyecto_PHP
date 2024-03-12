@@ -21,7 +21,7 @@
 
 <body>
 
-    <div class="container-fluid text-center bg-success">
+    <div class="container text-center bg-success">
         <?php
 
 
@@ -58,14 +58,13 @@
             print "<td><a href='eliminarUsuario.php?codigo=$registro[0]' class='btn btn-danger'>Eliminar</a>  ";
             print "<a href='añadirUsuario.php?' class='btn btn-primary'>Añadir</a>  ";
             //Al acceder al enlace podemos sacar el id del usuario facilmente
-            print "<a href='modificarUsuario.php?codigo=$$registro[0]' class='btn btn-warning'>Modificar</a></td></tr>";
+            print "<a href='formModificarUsuario.php?codigo=$registro[0]' class='btn btn-warning'>Modificar</a></td></tr>";
         }
 
         print "</table>";
         print "<a href='dashboard.php?' class='btn btn-secondary'>Volver al inicio</a>";
 
         ?>
-        <?php include("footer_libros.php"); ?>
     </div>
 </body>
 

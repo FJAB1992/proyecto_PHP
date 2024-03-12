@@ -16,34 +16,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Error de conexión a la base de datos: " . $conexion->connect_error);
     }
 
-    // Verificar si la contraseña está definida en el formulario
-    if (isset($_POST['contraseña'])) {
-        $contraseña_ingresada = $_POST['contraseña'];
+    // Verificar si la contraseña y otros datos están definidos en el formulario
+    if (isset($_POST['nombre'], $_POST['email'], $_POST['contraseña'])) {
+        $nombre = $_POST['nombre'];
+        $email = $_POST['email'];
+        $contraseña = password_hash($_POST['contraseña'], PASSWORD_DEFAULT); // Encriptar la contraseña
 
-        // Obtener la contraseña almacenada desde la tabla de seguridad
-        $consultaSeguridad = "SELECT contraseña FROM seguridad";
-        $resultadoSeguridad = $conexion->query($consultaSeguridad);
+        // Definir el rol del nuevo usuario
+        $rol_nuevo_usuario = (isset($_SESSION['rol']) && $_SESSION['rol'] == 'admin') ? 'admin' : 'user';
 
-        if ($resultadoSeguridad && $resultadoSeguridad->num_rows > 0) {
-            $filaSeguridad = $resultadoSeguridad->fetch_assoc();
-            $contraseña_almacenada = $filaSeguridad['contraseña'];
-
-            // Comparar contraseñas de manera básica
-            if ($contraseña_ingresada === $contraseña_almacenada) {
-                // Contraseña correcta, redirigir a creacionAdmin.php
-                header("Location: creacionAdmin.php");
-                exit(); // Asegurarse de salir después de la redirección
-            } else {
-                // Contraseña incorrecta
-                echo "Error: Contraseña incorrecta.";
-            }
+        // Insertar nuevo usuario en la tabla `usuarios`
+        $consultaInsertarUsuario = "INSERT INTO `usuarios` (`nombre`, `email`, `contraseña`, `rol`) VALUES ('$nombre', '$email', '$contraseña', '$rol_nuevo_usuario')";
+        
+        if ($conexion->query($consultaInsertarUsuario) === TRUE) {
+            // Redireccionar a iniciar_sesion.php con un mensaje
+            header("Location: iniciar_sesion.php?mensaje=Usuario registrado correctamente");
+            exit();
         } else {
-            echo "Error al obtener la contraseña almacenada.";
+            echo "Error al registrar el usuario: " . $conexion->error;
         }
-
     } else {
         // Datos del formulario incompletos
-        die("Error: Datos del formulario incompletos.");
+        echo "Error: Datos del formulario incompletos.";
     }
 
     // Cerrar la conexión a la base de datos

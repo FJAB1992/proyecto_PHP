@@ -7,47 +7,45 @@ require_once('conexion.php');
 
 // Comprobación del método de solicitud
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-    // Conexión a la base de datos
-    $conexion = mysqli_connect($servidor, $usuario, $password, $basedatos) or die("Error de conexión");
-
-    // Verificación de la conexión
-    if ($conexion->connect_error) {
-        die("Error de conexión a la base de datos: " . $conexion->connect_error);
-    }
 
     // Recuperación de los datos del formulario
-    $correo = mysqli_real_escape_string($conexion, $_POST['correo']);  // Evitar la inyección SQL
+    $correo = $_POST['correo'];
     $contraseña = $_POST['contraseña'];
 
+    // Conexión a la base de datos
+    $conexion = mysqli_connect($servidor, $usuario, $password, $basedatos);
+
+    // Verificación de la conexión
+    if (!$conexion) {
+        die("Error de conexión a la base de datos: " . mysqli_connect_error());
+    }
+
     // Consulta para obtener el usuario con una sentencia preparada
-    $consulta = "SELECT * FROM usuarios WHERE email = ?";
-    $stmt = $conexion->prepare($consulta);
+    $consulta = "SELECT id_usuario, email, contraseña, rol FROM usuarios WHERE email = ?";
+    $stmt = mysqli_prepare($conexion, $consulta);
 
     // Verificación de la preparación de la consulta
     if ($stmt) {
-        $stmt->bind_param("s", $correo);
-        $stmt->execute();
-        $resultado = $stmt->get_result();
+        mysqli_stmt_bind_param($stmt, "s", $correo);
+        mysqli_stmt_execute($stmt);
+        $resultado = mysqli_stmt_get_result($stmt);
 
         // Verificación del resultado
         if ($resultado) {
             // Verificación de si el usuario existe
-            if ($resultado->num_rows == 1) {
-                $usuario = $resultado->fetch_assoc();
+            if (mysqli_num_rows($resultado) == 1) {
+                $usuario = mysqli_fetch_assoc($resultado);
 
                 // Verificación de la contraseña utilizando password_verify
-                echo $usuario["contraseña"] , $contraseña;
+                if (password_verify($contraseña, $usuario["contraseña"])) {
 
-                
-                if ($contraseña == $usuario["contraseña"]) {
-                    
                     // Usuario autenticado
 
                     // Guardar datos en la sesión
                     $_SESSION['iniciada'] = true;
                     $_SESSION['correo'] = $usuario['email'];
                     $_SESSION['idUsuario'] = $usuario['id_usuario'];
+                    $_SESSION['rol'] = $usuario['rol'];
 
                     // Redireccionar siempre a dashboard.php
                     header("Location: dashboard.php");
@@ -55,10 +53,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } else {
                     // Contraseña incorrecta
                     echo "Usuario o contraseña incorrectos";
+                    echo "<br><br><button class='btn btn-primary'><a href='iniciar_sesion.php'>Volver</a></button>";
                 }
             } else {
                 // Usuario no encontrado
                 echo "Usuario o contraseña incorrectos";
+                echo "<br><br><button class='btn btn-primary'><a href='iniciar_sesion.php'>Volver</a></button>";
             }
         } else {
             // Error en la consulta SQL
@@ -66,19 +66,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Cerrar la conexión a la base de datos
-        $stmt->close();
+        mysqli_stmt_close($stmt);
     } else {
         // Error en la preparación de la consulta SQL
         echo "Error en la preparación de la consulta: " . mysqli_error($conexion);
     }
 
     // Cerrar la conexión a la base de datos si aún está abierta
-    if ($conexion) {
-        $conexion->close();
-    }
+    mysqli_close($conexion);
 } else {
     // Redireccionar si alguien intenta acceder directamente a login.php
     header("Location: index.php");
     exit();
 }
-?>

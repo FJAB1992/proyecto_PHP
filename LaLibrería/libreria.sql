@@ -86,21 +86,6 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   PRIMARY KEY (`id_usuario`)
 ) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id_usuario`, `nombre`, `email`, `contraseña`, `rol`) VALUES
-(1, 'Admin1', 'admin1@example.com', 'admin123', 'admin'),
-(2, 'Admin2', 'admin2@example.com', 'admin456', 'admin'),
-(3, 'User1', 'user1@example.com', 'user123', 'user'),
-(4, 'User2', 'user2@example.com', 'user456', 'user'),
-(5, 'User3', 'user3@example.com', 'user789', 'user'),
-(6, 'User4', 'user4@example.com', 'user012', 'user'),
-(7, 'User5', 'user5@example.com', 'user345', 'user'),
-(8, 'User6', 'user6@example.com', 'user678', 'user'),
-(9, 'User7', 'user7@example.com', 'user901', 'user'),
-(10, 'User8', 'user8@example.com', 'user234', 'user');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
