@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 12-03-2024 a las 23:06:09
+-- Tiempo de generación: 12-03-2024 a las 23:05:57
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -55,49 +55,6 @@ INSERT INTO `libros` (`id_libro`, `titulo`, `autor`, `genero`, `fecha_publicacio
 (9, 'Crimen y castigo', 'Fyodor Dostoevsky', 'Novela', '1866-01-01', 1, 0),
 (10, 'El principito', 'Antoine de Saint-Exupéry', 'Infantil', '1943-04-06', 1, 0),
 (11, 'ddsdsdsds', 'd', 'd', '0000-00-00', 1, 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `seguridad`
---
-
-DROP TABLE IF EXISTS `seguridad`;
-CREATE TABLE IF NOT EXISTS `seguridad` (
-  `contraseña` varchar(100) NOT NULL,
-  PRIMARY KEY (`contraseña`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `seguridad`
---
-
-INSERT INTO `seguridad` (`contraseña`) VALUES
-('JqtSV0Sk');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuarios`
---
-
-DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id_usuario` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `contraseña` varchar(100) NOT NULL,
-  `rol` varchar(10) NOT NULL,
-  PRIMARY KEY (`id_usuario`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id_usuario`, `nombre`, `email`, `contraseña`, `rol`) VALUES
-(29, 'jnjnjnjn', '12@12', '$2y$10$VCcXjOMg/RLoIGOzMCfsZO6FaLA8Zxvx8OE77bhrRasoLa8HdNoGO', 'user'),
-(27, 'broly', 'l@l', '$2y$10$26gZ.Q0ZK5jcUqaoP.WFJeZZX/dtubhyxEZqcPXEp369yu9LtqOQC', 'admin');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

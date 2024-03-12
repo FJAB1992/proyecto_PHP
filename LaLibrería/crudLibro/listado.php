@@ -33,6 +33,7 @@ include "header.php";
                                     <th scope="col">Género</th>
                                     <th scope="col">Fecha publicación</th>
                                     <th scope="col">Disponibilidad</th>
+                                    <th scope="col">Préstamo</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,6 +47,7 @@ include "header.php";
                                         <td><?php echo $registro[3]; ?></td>
                                         <td><?php echo $registro[4]; ?></td>
                                         <td><?php echo $registro[5]; ?></td>
+                                        <td><?php echo $registro[6]; ?></td>
                                       </tr>
                                 <?php
                                 }
