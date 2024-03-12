@@ -5,7 +5,7 @@ mysqli_select_db($conexion,"libreria");
 
 $libroborrar = $_GET["id"];
 
-$borrar = "DELETE FROM libros WHERE id_producto = '$libroborrar'";
+$borrar = "DELETE FROM libros WHERE id_libro = '$libroborrar'";
 mysqli_query($conexion,$borrar);
 header("Location: baja_ok.php");
 
