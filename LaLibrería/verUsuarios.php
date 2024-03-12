@@ -41,20 +41,14 @@
         print "<table class='table table-primary'>";
         print "<tr class='table-dark'><th scope='col'>Nombre</th>";
         print "<th scope='col'>Email</th>";
-        print "<th scope='col'>Contraseña</th>";
-        print "<th scope='col'>Rol</th>";
         print "<th scope='col'>Acciones</th></tr>";
         //PAra poder mandar el id del usuario
         while ($registro = mysqli_fetch_row($registros)) {
             $nombre = $registro[1];
             $email = $registro[2];
-            $contraseña = $registro[3]; //Probablemente sea cifrado, convertir a texto
-            $rol = $registro[4];
 
             print "<tr><td>$registro[1]</td>";
             print "<td>$registro[2]</td>";
-            print "<td>$registro[3]</td>";
-            print "<td>$registro[4]</td>";
             print "<td><a href='eliminarUsuario.php?codigo=$registro[0]' class='btn btn-danger'>Eliminar</a>  ";
             print "<a href='añadirUsuario.php?' class='btn btn-primary'>Añadir</a>  ";
             //Al acceder al enlace podemos sacar el id del usuario facilmente
@@ -62,7 +56,7 @@
         }
 
         print "</table>";
-        print "<a href='dashboard.php?' class='btn btn-secondary'>Volver al inicio</a>";
+        print "<a href='dashboard.php?' class='btn btn-secondary m-2'>Volver al inicio</a>";
 
         ?>
     </div>
