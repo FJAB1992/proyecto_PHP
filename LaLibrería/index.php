@@ -22,12 +22,23 @@
         <form id="form1" name="form1">
             <fieldset>
                 <legend class="text-center bg-warning">Mi Librería</legend>
-                <img class="p-3" src="libreria.jpg" alt="libreria" width="600" >
+                <img class="p-3" src="libreria.jpg" alt="libreria" width="600">
                 <br>
                 <input class="btn btn-primary p-3" type="button" value="Acceder" onclick="window.location.href='iniciar_sesion.php'">
             </fieldset>
         </form>
         <?php include("footer_libros.php"); ?>
-    </div>
+        <div class="text-center pt-2 pb-5 mb-5">
+            <h2 class="mt-3">Cookies</h2>
+            <?php
+            if (!isset($_COOKIE['micookie'])) {
+                $caducidad = time() + (60 * 60 * 24 * 365);
+                setcookie('micookie', 1, $caducidad);
+                echo "La cookie se ha creado con exito";
+            } else {
+                echo  "La cookie ya existe.";
+            }
+            ?>
+        </div>
 
 </body>
