@@ -29,7 +29,7 @@ session_start();
             <fieldset>
                 <legend>Registro en mi Librería</legend>
                 <br><br>
-                Nombre usuario: <input type="text" name="nombre" required>
+                Nombre Admin: <input type="text" name="nombre" required>
                 <br><br>
                 Correo: <input type="email" name="email" required>
                 <br><br>
