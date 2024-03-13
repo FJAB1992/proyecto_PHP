@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Creación de Nuevo Administrador</title>
+    <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -65,36 +65,52 @@
                 echo ("<a class='btn btn-primary' href='crudLibro/panel_admin.php?'>Panel administración</a>");
                 print("<br><br>");
             } else {
-                // Resto del código para usuario
-                echo "<p>Eres un usuario.</p>";
+                //Como usuario
+                include "./crudLibro/header.php";
+                ?>
+                
+                <div class="container my-5">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="card">
+                                <div class="card-header display-6">
+                                    Opciones
+                                </div>
+                                <div class="p-4">
+                                    <div class="table-responsive">
+                                        <table class="table table-primary">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Sacar libro</th>
+                                                    <th scope="col">Devolver libro</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="">
+                                                    <td scope="row">
+                                                        <a href="reservar_libro.php">
+                                                            <i class="bi bi-journal-minus px-3" style="font-size: 4rem; color:orange;"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="devolver_libro.php">
+                                                            <i class="bi bi-journal-plus px-3" style="font-size: 4rem; color:orange;"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <button class="btn btn-primary"><a href="../dashboard.php">Volver</a></button>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                include("footer_libros.php");
 
-                print "<h1>Libros disponibles</h1>";
-
-                $consultar = "SELECT * FROM libros WHERE disponibilidad=1";
-
-                $registros = mysqli_query($conexion, $consultar);
-                $cambiado = "";
-                //Para identificar facilmente el id del libro a reservar
-                $codigo = 1;
-
-                print "<table class='table p-3'>";
-                print "<tr class='table-warning'><th>Título</th>";
-                print "<th>Autor</th>";
-                print "<th>Género</th>";
-                print "<th>Publicación</th>";
-                print "<th>Acciones</th></tr>";
-                while ($registro = mysqli_fetch_row($registros)) {
-
-                    print "<tr><td>$registro[1]</td>";
-                    print "<td>$registro[2]</td>";
-                    print "<td>$registro[3]</td>";
-                    print "<td>$registro[4]</td>";
-                    //En este enlace se pasa el codigo del libro como variable
-                    print "<td class='bg-secondary'><a class='btn btn-primary' href='reserva_libro.php?codigo=$codigo'>Reservar</a></td></tr>";
-                    $codigo = $codigo + 1;
-                }
-
-                print "</table>";
             }
 
             echo "<br><a  class='btn btn-warning p-3 m-3' href='cerrarSesion.php'>Cerrar sesión</a>";
