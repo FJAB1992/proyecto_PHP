@@ -43,7 +43,6 @@
             }
 
             if (!is_null($contraseñaBD) && password_verify($pass, $contraseñaBD)) {
-                // El código del formulario y las acciones que siguen
                 echo "<h1>Creación de nuevo administrador</h1>";
                 echo "<form action='creacionAdmin.php' method='POST'>";
                 echo "<label for='nombre'>Nombre usuario</label><br>";

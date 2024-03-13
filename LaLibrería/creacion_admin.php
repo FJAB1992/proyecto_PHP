@@ -68,8 +68,6 @@
             echo "</form>";
             echo ("</div>");
         }
-    } else {
-        // Resto del código para el formulario de ingreso de contraseña...
     }
     ?>
 

@@ -55,9 +55,7 @@ include "header.php";
                             </tbody>
                         </table>
                     </div>
-
                 </div>
-                <!--otro icono curioso de back: bi bi-backspace -->
                 <a href="panel_admin.php"><i class="bi-arrow-return-left px-3" style="font-size:4rem; color:black;"></i></a>
             </div>
 

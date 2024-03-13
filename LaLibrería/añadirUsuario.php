@@ -25,7 +25,7 @@ session_start();
 <body>
     <div class="container-fluid text-center p-3 bg-success">
         <!-- Formulario de registro -->
-        <form id="form1" class="text-center bg-success" method="post" action="registrarUsuario.php">
+        <form id="form1" class="text-center bg-success" method="post" action="registro.php">
             <fieldset>
                 <legend>Registro en mi Librería</legend>
                 <br><br>
@@ -35,7 +35,7 @@ session_start();
                 <br><br>
                 Contraseña: <input type="password" name="contraseña" required><br>
                 <br>
-                tipo (admin/usuario): <input type="text" name="rol" required>
+                tipo (admin/user): <input type="text" name="rol" required>
                 <input name="registro" id="registro" class="btn btn-primary" type="submit" value="Registrarse" />
             </fieldset>
         </form>

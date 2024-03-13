@@ -4,7 +4,7 @@ global $servidor, $usuario, $password, $basedatos;
 
 $servidor = "localhost";
 $usuario = "root";
-$password = ""; // Asegúrate de tener la contraseña correcta aquí
+$password = "";
 $basedatos = "libreria";
 
 // Establecer la conexión con MySQL
