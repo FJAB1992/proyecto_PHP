@@ -13,6 +13,7 @@
         
         <?php
         session_start();
+        
 
         // Manejo de errores
         ini_set('display_errors', 1);
@@ -35,6 +36,9 @@
 
         // Actualizar la disponibilidad del libro a 0
         $consulta_actualizar_disponibilidad = "UPDATE libros SET disponibilidad = 0 WHERE id_libro = $id_libro";
+        $resultado_actualizar_disponibilidad = mysqli_query($conexion, $consulta_actualizar_disponibilidad);
+
+        $consulta_actualizar_disponibilidad = "UPDATE libros SET prestamo = $_SESSION[idUsuario] WHERE id_libro = $id_libro";
         $resultado_actualizar_disponibilidad = mysqli_query($conexion, $consulta_actualizar_disponibilidad);
 
         // Verificar si se pudo actualizar la disponibilidad

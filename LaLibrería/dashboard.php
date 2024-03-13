@@ -104,7 +104,7 @@
                                 </div>
                             </div>
                             <br><br>
-                            <button class="btn btn-primary"><a href="../dashboard.php">Volver</a></button>
+                            <button class="btn btn-primary"><a href="iniciar_sesion.php">Volver</a></button>
                         </div>
                     </div>
                 </div>
