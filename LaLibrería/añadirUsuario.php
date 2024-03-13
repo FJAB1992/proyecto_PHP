@@ -33,11 +33,10 @@ session_start();
                 <br><br>
                 Correo: <input type="email" name="email" required>
                 <br><br>
-                Contraseña: <input type="password" name="contraseña" required><br>
-                <br>
-                tipo (admin/user): <input type="text" name="rol" required>
+                Contraseña: <input type="password" name="contraseña" required><br><br><br>
                 <input name="registro" id="registro" class="btn btn-primary" type="submit" value="Registrarse" />
             </fieldset>
+            <br>
         </form>
         <div class="text-center bg-secondary"><br>
             <a href="dashboard.php" class="btn btn-primary p-3 m-3">ir al dashboard</a>

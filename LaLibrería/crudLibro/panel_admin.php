@@ -50,7 +50,7 @@ include "header.php";
                 </div>
             </div>
             <br><br>
-            <button class="btn btn-secondary"><a href="../dashboard.php">Volver</a></button>
+            <button class="btn btn-primary"><a href="../dashboard.php">Volver</a></button>
         </div>
     </div>
 </div>
