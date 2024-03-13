@@ -35,23 +35,25 @@
         // Verificar si el libro está prestado
         $consulta_libro_prestado = "SELECT * FROM libros WHERE prestamo = $_SESSION[idUsuario]";
         $registros = mysqli_query($conexion, $consulta_libro_prestado);
+        
 
-        echo "<h2>Libros reservados:</h2>";
-        echo "<div class='container'><table class='table'>";
-        echo "<thead><tr><th>Título</th><th>Autor</th><th>Género</th><th>Fecha de publicación</th><th>Acción</th></tr></thead>";
-        echo "<tbody>";
-        while ($registro = mysqli_fetch_row($registros)) {
+            echo "<h2>Libros reservados:</h2>";
+            echo "<div class='container'><table class='table'>";
+            echo "<thead><tr><th>Título</th><th>Autor</th><th>Género</th><th>Fecha de publicación</th><th>Acción</th></tr></thead>";
+            echo "<tbody>";
+            while ($registro = mysqli_fetch_row($registros)) {
 
-            print "<tr><td>$registro[1]</td>";
-            print "<td>$registro[2]</td>";
-            print "<td>$registro[3]</td>";
-            print "<td>$registro[4]</td>";
-            print "<td class='text-center'><a class='btn btn-primary' href='devolver_LibroBD.php?id_libro= $registro[0]'>Devolver</a></td></tr>";
-        }
-        print("</table>");
+                print "<tr><td>$registro[1]</td>";
+                print "<td>$registro[2]</td>";
+                print "<td>$registro[3]</td>";
+                print "<td>$registro[4]</td>";
+                print "<td class='text-center'><a class='btn btn-primary' href='devolver_LibroBD.php?id_libro= $registro[0]'>Devolver</a></td></tr>";
+            }
+            print("</table>");
 
 
-        mysqli_close($conexion);
+            mysqli_close($conexion);
+        
         ?>
 
         <br>
