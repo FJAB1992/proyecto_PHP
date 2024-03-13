@@ -65,7 +65,7 @@
         } else {
             echo "No hay libros disponibles en este momento.";
         }
-
+        echo "<a href='dashboard.php' class='btn btn-primary'>Volver</a>";
         mysqli_close($conexion);
         ?>
 
