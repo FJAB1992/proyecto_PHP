@@ -17,28 +17,30 @@ if (!$conexion) {
     die("Error de conexión: " . mysqli_connect_error());
 }
 
-// Obtener información del usuario de la sesión
-$email = $_SESSION['correo'];
+// Obtener el ID del libro desde la URL
+$id_libro = $_GET['id_libro'];
 
-// Consulta SQL para obtener libros reservados por el usuario actual
-$consulta_libros_reservados = "SELECT libros.titulo FROM libros JOIN usuarios ON libros.prestamo = usuarios.id WHERE usuarios.email = ?";
-$stmt_libros_reservados = mysqli_prepare($conexion, $consulta_libros_reservados);
-mysqli_stmt_bind_param($stmt_libros_reservados, "s", $email);
-mysqli_stmt_execute($stmt_libros_reservados);
-$resultado_libros_reservados = mysqli_stmt_get_result($stmt_libros_reservados);
+// Verificar si el libro está prestado
+$consulta_libro_prestado = "SELECT * FROM libros WHERE id_libro = $id_libro AND prestamo IS NOT NULL";
+$resultado_libro_prestado = mysqli_query($conexion, $consulta_libro_prestado);
 
-// Verificar si se encontraron libros reservados
-if ($resultado_libros_reservados && mysqli_num_rows($resultado_libros_reservados) > 0) {
-    echo "<h2>Libros reservados por ti:</h2>";
-    echo "<ul>";
-    while ($fila = mysqli_fetch_assoc($resultado_libros_reservados)) {
-        echo "<li>{$fila['titulo']}</li>";
+if (mysqli_num_rows($resultado_libro_prestado) > 0) {
+    // El libro está prestado, entonces actualizamos la información
+    $fila = mysqli_fetch_assoc($resultado_libro_prestado);
+
+    // Actualizar la información del libro
+    $consulta_devolver_libro = "UPDATE libros SET prestamo = NULL, disponibilidad = 1 WHERE id_libro = $id_libro";
+    $resultado_devolver_libro = mysqli_query($conexion, $consulta_devolver_libro);
+
+    if ($resultado_devolver_libro) {
+        echo "Libro devuelto exitosamente.";
+    } else {
+        echo "Error al devolver el libro.";
     }
-    echo "</ul>";
 } else {
-    echo "No tienes ningún libro reservado en este momento.";
+    // El libro no está prestado
+    echo "El libro no está prestado o no te pertenece.";
 }
 
-mysqli_stmt_close($stmt_libros_reservados);
 mysqli_close($conexion);
 ?>
