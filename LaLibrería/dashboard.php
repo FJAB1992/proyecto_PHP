@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <?php
-                include("footer_libros.php");
+                
 
             }
 
